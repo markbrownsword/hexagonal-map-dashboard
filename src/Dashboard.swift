@@ -46,7 +46,7 @@ class Dashboard: SKNode {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
 
-        self.displayRect = decoder.decodeObject(forKey: self.displayRectName) as! CGRect
+        self.displayRect = decoder.decodeObject(forKey: self.displayRectName) as? CGRect
         self.buttonContainer = self.childNode(withName: self.buttonContainerName)
     }
 

@@ -8,7 +8,7 @@
 import SpriteKit
 
 class MoveCommand: CommandBase {
-    init(execute: @escaping (() -> Void) = {_ in }) {
+    init(execute: @escaping (() -> Void) = { }) {
         super.init(text: "Move", execute: execute)
     }
 }

@@ -31,7 +31,7 @@ class HexGraph<NodeType: HexGraphNode> : GKGraph {
         let D = "D"
         let E = "E"
         
-        var neighbourParity = [
+        let neighbourParity: [String: [String: vector_int2]] = [
             evenParityKey: [
                 A: vector_int2(x: -1, y: 1),
                 B: vector_int2(x: 0, y: 1),

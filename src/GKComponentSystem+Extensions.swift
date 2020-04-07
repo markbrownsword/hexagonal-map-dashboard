@@ -9,7 +9,7 @@ import SpriteKit
 import GameplayKit
 
 extension GKComponentSystem {
-    func addComponents(from entities: [GKEntity]) {
+    @objc func addComponents(from entities: [GKEntity]) {
         for entity in entities {
             self.addComponent(foundIn: entity)
         }
