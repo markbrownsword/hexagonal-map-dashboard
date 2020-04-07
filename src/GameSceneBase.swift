@@ -117,28 +117,28 @@ class GameSceneBase : SKScene, TileMapScene, TileSelector {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name: .UIApplicationDidEnterBackground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillResignActive), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name: .NSExtensionHostDidEnterBackground, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: .NSExtensionHostDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillResignActive), name: .NSExtensionHostWillResignActive, object: nil)
     }
 
     override func encode(with encoder: NSCoder) {
         super.encode(with: encoder)
     }
 
-
     // MARK: UIApplication Observer Functions
 
-    func applicationDidEnterBackground() {
+    @objc func applicationDidEnterBackground() {
         self.gameDelegate.saveScene(gameFolder: "MarsGameScene", scene: self)
     }
 
-    func applicationDidBecomeActive() {
+    @objc func applicationDidBecomeActive() {
         self.setupDash()
         self.stateMachine.enter(PlayerTurn.self)
     }
 
-    func applicationWillResignActive() {
+    @objc func applicationWillResignActive() {
         self.stateMachine.enter(GamePaused.self)
     }
 

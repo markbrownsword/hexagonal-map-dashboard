@@ -17,7 +17,7 @@ class CommandBase: NSObject, Command {
 
     // MARK: Initialization
 
-    init(text: String, execute: @escaping (() -> Void) = {_ in }) {
+    init(text: String, execute: @escaping (() -> Void) = { }) {
         self.text = text
         self.execute = execute
     }

@@ -9,7 +9,7 @@ import SpriteKit
 import GameplayKit
 
 protocol VisualEntity {
-    weak var delegate: GamePlayScene! { get set }
+    var delegate: GamePlayScene! { get set }
 
     var type: EntityType! { get }
     var node: SKSpriteNode! { get }

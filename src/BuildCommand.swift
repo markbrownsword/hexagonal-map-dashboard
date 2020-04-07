@@ -8,7 +8,7 @@
 import SpriteKit
 
 class BuildCommand: CommandBase {
-    init(execute: @escaping (() -> Void) = {_ in }) {
+    init(execute: @escaping (() -> Void) = { }) {
         super.init(text: "BUILD", execute: execute)
     }
 }
